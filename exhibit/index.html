@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Open Data Research - Bibliography</title>
+    <link rel="stylesheet" href="http://www.simile-widgets.org/styles/common.css" type="text/css" />
+    
+    <link href="data.json" type="application/json" rel="exhibit/data" />
+    
+    <script src="http://api.simile-widgets.org/exhibit/2.2.0/exhibit-api.js"
+                type="text/javascript"></script>
+    <style>
+        h3 {
+            margin-bottom:0px;
+        }
+        .abstract {
+            font-style:italic;
+        }
+        
+        .classifications .code {
+            width:150px;
+            background-color:lightblue;
+        }
+    </style>
+  </head>
+
+  <body>
+      <h1>Publications</h1>
+       <div ex:role="collection" id="publications" ex:itemTypes="Publication"></div>
+        <table width="100%">
+            <tr valign="top">
+                <td width="25%">
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".itemType" ex:facetLabel="Item Type"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".method" ex:facetLabel="Method"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".focus" ex:facetLabel="Focus"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".sector" ex:facetLabel="Sector"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".geo.label" ex:facetLabel="Geography" ex:sortMode="count"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".stage" ex:facetLabel="Stage"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact" ex:facetLabel="Impact"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".author" ex:facetLabel="Author"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact-sector" ex:facetLabel="Impact Sector"></div>
+                     <div ex:collectionID="publications" ex:role="facet" 
+                       ex:expression=".impact-strength"
+                       ex:facetClass="Slider" 
+                       ex:horizontal="true"
+                       ex:precision="1"
+                       ex:histogram="false">
+                     </div>
+                   <div ex:collectionID="publications" ex:facetClass="Cloud" ex:role="facet" ex:expression=".freeTags" ex:facetLabel="Free Tags"></div>
+                </td>
+                <td ex:role="viewPanel" ex:collectionID="publications">
+                    <div ex:role="view" ex:abbreviatedCount="25" ex:pageSize="25" ex:paginate="true">
+                        <div ex:role="lens" class="publication" style="display: none;">
+                            <div class="publication-item">
+                               <h3><a ex:href-content="concat('https://www.zotero.org/groups/open_data_research/items/',.key)" target="_blank"><span ex:content=".label"></span></a> (<span ex:content=".date"></span>)</h3>
+                               <div class="publication-authors"><span ex:content=".author"></span></div>
+     
+                               <table width="100%">
+                                   <tr>
+                                       <td valign="top">
+                                            <div class="abstract"><span ex:content=".abstract"></span></div>
+                                        </td>
+                                        <td width="400" valign="top">
+                                            <table class="classifications">
+                                                <tr>
+                                                    <td class="code">Type:</td>
+                                                    <td class="value" ex:content=".itemType"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Method:</td>
+                                                    <td class="value" ex:content=".method"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Focus:</td>
+                                                    <td class="value" ex:content=".focus"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Sector:</td>
+                                                    <td class="value" ex:content=".sector"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Geography:</td>
+                                                    <td class="value" ex:content=".geo.label"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Stage:</td>
+                                                    <td class="value" ex:content=".stage"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Impact:</td>
+                                                    <td class="value" ex:content=".impact"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Impact Sector:</td>
+                                                    <td class="value" ex:content=".impact-sector"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="code">Impact Strength:</td>
+                                                    <td class="value" ex:content=".impact-strength"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                               </table>
+                               
+                               
+                               
+                               <div class="url">View/Download: <a ex:href-content=".url" target="_blank" ex:content=".url"></a></div>
+                               
+                        </div>
+                        
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+
+   </body>
+  </html>
