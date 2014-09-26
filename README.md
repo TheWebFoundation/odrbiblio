@@ -1,6 +1,6 @@
 ## Open Data Research Bibliography
 
-This repository contains scripts for converting and displaying data in the []'Open Data Research' group on Zotero](https://www.zotero.org/groups/open_data_research/) in the [Simile Exhibit Faceted Browser](http://www.simile-widgets.org/exhibit/).
+This repository contains scripts for converting and displaying data in the ['Open Data Research' group on Zotero](https://www.zotero.org/groups/open_data_research/) in the [Simile Exhibit Faceted Browser](http://www.simile-widgets.org/exhibit/).
 
 ### Currently
 Data in the Zotero group is tagged according to [a defined tagging schema](https://docs.google.com/spreadsheets/d/1gmF8vaWY2NZaYoM82YdUU2cSWFa-9O7hIvyMpwmEHJ0/edit?usp=sharing). The script takes any tags with ':' in, and splits them into prefix and tag value. It cleans basic errors (incorrect whitespace) and outputs the data as Exhibit JSON.
