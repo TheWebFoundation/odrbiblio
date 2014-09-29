@@ -9,10 +9,24 @@
         "geo": {
             "valueType": "item"
         },
+        "stage": {
+            "valueType": "item"
+        },
+        "impact": {
+            "valueType": "item"
+        },
+        "method": {
+            "valueType": "item"
+        },
+        "itemType": {
+            "valueType": "item"
+        },
         "impact-strength": {
             "valueType":"number"
         }
     },
+    
+    
     "items": [
            {"id":"africa","label":"Africa","type":"country"},
            {"id":"antarctica","label":"Antartica","type":"country"},
@@ -272,9 +286,51 @@
            {"id":"zw","label":"Zimbabwe","type":"country"},
            
            
+                     
            
-           {"id":"uk","label":"United Kingdom","type":"country"}
-           
+           {"id":"argumentation","label":"Argumentation","type":"method"},
+           {"id":"case-study","label":"Case Study","type":"method"},
+           {"id":"experiment","label":"Experiment","type":"method"},
+           {"id":"interview","label":"Interview","type":"method"},
+           {"id":"literature-review","label":"Literature Review","type":"method"},
+           {"id":"meta-analysis","label":"Meta-analysis","type":"method"},
+           {"id":"modelling","label":"Modelling","type":"method"},
+           {"id":"qualitative-analysis","label":"Qualitative Analysis","type":"method"},
+           {"id":"quantitative-analysis","label":"Quantitative Analysis","type":"method"},
+           {"id":"survey","label":"Survey","type":"method"},
+           {"id":"participant-observation","label":"Participant Observation","type":"method"},
+           {"id":"action-research","label":"Action Research","type":"method"},
+           {"id":"participatory-approaches","label":"Participatory Approaches","type":"method"},
+           {"id":"mixed-methods","label":"Mixed methods studies","type":"method"},
+           {"id":"computer-science","label":"Computer Science","type":"method"},
+           {"id":"theory","label":"Theory","type":"stage"},
+           {"id":"readiness","label":"Readiness","type":"stage"},
+           {"id":"implementation","label":"Implementation","type":"stage"},
+           {"id":"impact","label":"Impact","type":"stage"},
+           {"id":"national-government","label":"National Government","type":"sectors"},
+           {"id":"regional-government","label":"Regional Government","type":"sectors"},
+           {"id":"local-government","label":"Local Government","type":"sectors"},
+           {"id":"international-organisations","label":"International Organisation","type":"sectors"},
+           {"id":"civil-society","label":"Civil Society","type":"sectors"},
+           {"id":"private-sector","label":"Private Sector","type":"sectors"},
+           {"id":"citizens","label":"Citizens","type":"sectors"},
+           {"id":"social","label":"Social","type":"impact"},
+           {"id":"political","label":"Political","type":"impact"},
+           {"id":"environmental","label":"Environmental","type":"impact"},
+           {"id":"economic","label":"Economic","type":"impact"},
+           {"id":"book","label":"Book","type":"itemType"},
+           {"id":"booksection","label":"Book Section","type":"itemType"},
+           {"id":"blogpost","label":"Blog Post","type":"itemType"},
+           {"id":"case","label":"Case","type":"itemType"},
+           {"id":"conferencepaper","label":"Conference Paper","type":"itemType"},
+           {"id":"interview","label":"Interview","type":"itemType"},
+           {"id":"journalarticle","label":"Journal Article","type":"itemType"},
+           {"id":"newspaperarticle","label":"Newspaper Article","type":"itemType"},
+           {"id":"magazinearticle","label":"Magazine Article","type":"itemType"},
+           {"id":"presentation","label":"Presentation","type":"itemType"},
+           {"id":"report","label":"Report","type":"itemType"},
+           {"id":"thesis","label":"Thesis","type":"itemType"}
+
 
 
        ]

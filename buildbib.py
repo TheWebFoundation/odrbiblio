@@ -90,7 +90,7 @@ def crawlZotero(group,query):
         jsonData = json.loads(zoteroData['data'])
 
         for item in jsonData:
-            if item['data'].get('extra','') == 'coded':
+            if item['data'].get('extra','') == 'coded' or 'candidate' in item['data'].get('extra',''):
                 tags = validateTags(item)
                 exhibitJson['items'].append(exhibitNode(item,tags))
 

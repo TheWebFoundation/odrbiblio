@@ -19,22 +19,40 @@
             width:150px;
             background-color:lightblue;
         }
+        body {
+            margin:10px;
+        }
     </style>
   </head>
 
   <body>
-      <h1>Publications</h1>
+      <h1>Open Data Research - Bibliography Explorer</h1>
+      
+      <div class="overview">
+          <h2>About</h2>
+          <p>
+              The <a href="http://www.opendataresearch.org/network">Open Data Research Network</a> has been collating a bibliography of research publications on open data from around the world. With support from the <a href="http://www.theodi.org">Open Data Institute</a> and the <a href="http://theodi.org/odp4d">Partnership for Open Data</a> we have been working to apply detailed tagging to the collection, and to surface key insights and findings from across the literature. Through this interface you can dig into a selection of papers from the full collection which <a href="https://www.zotero.org/groups/open_data_research/">can be found on Zotero</a>. 
+          </p>
+          <h2>Share your feedback</h2>
+          <p>
+              As we continue to explore ways to make the open data research literature easier to explore and dig into, we need your help. This prototype shows our current tags and selection of papers. We want to know:
+              <ul>
+                  <li>Are these the right tags? What dimensions do you most want to use when digging into open data research? Did these tags help you discover relevant papers?</li>
+                  <li>What else could we do to make open data research easier to access and explore?
+              </ul>
+            You can share your feedback by e-mail with <a href="mailto:timdavies@webfoundation.org">timdavies@webfoundation.org</a> or through <a href="http://www.linkedin.com/groups?home=&gid=4790214">our LinkedIn group</a>.
+      </div>
        <div ex:role="collection" id="publications" ex:itemTypes="Publication"></div>
         <table width="100%">
             <tr valign="top">
                 <td width="25%">
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".itemType" ex:facetLabel="Item Type"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".method" ex:facetLabel="Method"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".itemType.label" ex:facetLabel="Item Type"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".method.label" ex:facetLabel="Method"></div>
                      <div ex:collectionID="publications" ex:role="facet" ex:expression=".focus" ex:facetLabel="Focus"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".sector" ex:facetLabel="Sector"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".sector.label" ex:facetLabel="Sector"></div>
                      <div ex:collectionID="publications" ex:role="facet" ex:expression=".geo.label" ex:facetLabel="Geography" ex:sortMode="count"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".stage" ex:facetLabel="Stage"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact" ex:facetLabel="Impact"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".stage.label" ex:facetLabel="Stage"></div>
+                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact.label" ex:facetLabel="Impact"></div>
                      <div ex:collectionID="publications" ex:role="facet" ex:expression=".author" ex:facetLabel="Author"></div>
                      <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact-sector" ex:facetLabel="Impact Sector"></div>
                      <div ex:collectionID="publications" ex:role="facet" 
@@ -66,7 +84,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Method:</td>
-                                                    <td class="value" ex:content=".method"></td>
+                                                    <td class="value" ex:content=".method.label"></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Focus:</td>
@@ -74,7 +92,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Sector:</td>
-                                                    <td class="value" ex:content=".sector"></td>
+                                                    <td class="value" ex:content=".sector.label"></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Geography:</td>
@@ -82,11 +100,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Stage:</td>
-                                                    <td class="value" ex:content=".stage"></td>
+                                                    <td class="value" ex:content=".stage.label"></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Impact:</td>
-                                                    <td class="value" ex:content=".impact"></td>
+                                                    <td class="value" ex:content=".impact.label"></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="code">Impact Sector:</td>
