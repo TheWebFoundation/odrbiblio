@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Data Research Network Bibliography</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bibliography.css" rel="stylesheet">
+    
+    <link href="data.json" type="application/json" rel="exhibit/data" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <!-- Fixed navbar -->
+         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+           <div class="container">
+             <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="index.html">Open Data Research Network: Bibliography</a>
+             </div>
+             <div id="navbar" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                 <li><a href="index.html">Articles</a></li>
+                 <li><a href="notes.html">Extracts</a></li>
+                 <li class="active"><a href="contribute.html">Contribute</a></li>
+                 <li><a href="about.html">About</a></li>
+               </ul>
+             </div><!--/.nav-collapse -->
+           </div>
+         </nav>
+
+         <div class="container">
+             
+             <h1>Open Data Research Annotated Bibliography</h1>
+              <img src="http://opendataresearch.org/sites/default/files/odr_network_logo.png" class="pull-right" alt="Open Data Research"/>
+             <p class="lead">
+                 Help us to discover and tag the best social research into how open data operates in practice.
+             </p>
+             <p>
+                 You can contribute to the Open Data Research Bibliography in a number of ways:
+                 
+                 <ol>
+                     <li><strong>Add new articles to our Zotero group</strong> (<a href="https://www.zotero.org/support/getting_stuff_into_your_library">HowTo</a>)</li>
+                     <li><strong>Use the tagging features in Zotero to annotate an existing article</strong> (details below)</li>
+                     <li><strong>Experiment with the data and provide your own analysis</strong> (details below)</li>
+                     <li><strong>Share your feedback on the tagging schema and choice of articles</strong> in our LinkedIn group</li>
+                 </ol>
+                 
+                 Annotated articles will be imported into this interactive bibliography viewer. 
+             </p>
+             <h2>Tagging content</h2>
+             <p>
+                 The <a href="https://docs.google.com/document/d/1HW2oxQ3oalJqe6bo99Wl8tTIykQYtaKPo1xG6cYKJ5A/pub">research handbook</a> describes how to use Zotero to add structured tags to each article, and how to add extracts.
+             </p>
+             <p>
+                <iframe src="https://docs.google.com/document/d/1HW2oxQ3oalJqe6bo99Wl8tTIykQYtaKPo1xG6cYKJ5A/pub?embedded=true" width="100%" height="700"></iframe>
+             </p>
+             <p>
+                 Scripts to refresh this interface should run every 24 hours, with changes to tags reflected within that period. If this does not appear to be happening, <a href="http://www.opendataresearch.org/contact">get in touch</a>. 
+             </p>
+             
+             
+             <h2>Working with the data</h2>
+             <p>
+                 At present exhibit json databases are available for <a href="data.json">articles</a> and <a href="notes.json">annotations</a>.
+             </p>
+             <p>
+                 The processes that talk to the Zotero API to generate these are available as small python scripts on GitHub and could be adapted to provide other kinds of data output. 
+             </p>
+
+  
+         </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>

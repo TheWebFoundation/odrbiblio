@@ -1,135 +1,163 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Open Data Research - Bibliography</title>
-    <link rel="stylesheet" href="http://www.simile-widgets.org/styles/common.css" type="text/css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Data Research Network Bibliography</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bibliography.css" rel="stylesheet">
     
     <link href="data.json" type="application/json" rel="exhibit/data" />
-    
-    <script src="http://api.simile-widgets.org/exhibit/2.2.0/exhibit-api.js"
-                type="text/javascript"></script>
-    <style>
-        h3 {
-            margin-bottom:0px;
-        }
-        .abstract {
-            font-style:italic;
-        }
-        
-        .classifications .code {
-            width:150px;
-            background-color:lightblue;
-        }
-        body {
-            margin:10px;
-        }
-    </style>
+    <script src="http://api.simile-widgets.org/exhibit/2.2.0/exhibit-api.js" type="text/javascript"></script>
+    <script src="http://api.simile-widgets.org/exhibit/2.2.0/extensions/map/map-extension.js?gmapkey="></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-      <h1>Open Data Research - Bibliography Explorer</h1>
-      
-      <div class="overview">
-          <h2>About</h2>
-          <p>
-              The <a href="http://www.opendataresearch.org/network">Open Data Research Network</a> has been collating a bibliography of research publications on open data from around the world. With support from the <a href="http://www.theodi.org">Open Data Institute</a> and the <a href="http://theodi.org/odp4d">Partnership for Open Data</a> we have been working to apply detailed tagging to the collection, and to surface key insights and findings from across the literature. Through this interface you can dig into a selection of papers from the full collection which <a href="https://www.zotero.org/groups/open_data_research/">can be found on Zotero</a>. 
-          </p>
-          <h2>Share your feedback</h2>
-          <p>
-              As we continue to explore ways to make the open data research literature easier to explore and dig into, we need your help. This prototype shows our current tags and selection of papers. We want to know:
-              <ul>
-                  <li>Are these the right tags? What dimensions do you most want to use when digging into open data research? Did these tags help you discover relevant papers?</li>
-                  <li>What else could we do to make open data research easier to access and explore?
-              </ul>
-            You can share your feedback by e-mail with <a href="mailto:timdavies@webfoundation.org">timdavies@webfoundation.org</a> or through <a href="http://www.linkedin.com/groups?home=&gid=4790214">our LinkedIn group</a>.
-      </div>
-       <div ex:role="collection" id="publications" ex:itemTypes="Publication"></div>
-        <table width="100%">
-            <tr valign="top">
-                <td width="25%">
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".itemType.label" ex:facetLabel="Item Type"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".method.label" ex:facetLabel="Method"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".focus" ex:facetLabel="Focus"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".sector.label" ex:facetLabel="Sector"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".geo.label" ex:facetLabel="Geography" ex:sortMode="count"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".stage.label" ex:facetLabel="Stage"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact.label" ex:facetLabel="Impact"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".author" ex:facetLabel="Author"></div>
-                     <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact-sector" ex:facetLabel="Impact Sector"></div>
-                     <div ex:collectionID="publications" ex:role="facet" 
-                       ex:expression=".impact-strength"
-                       ex:facetClass="Slider" 
-                       ex:horizontal="true"
-                       ex:precision="1"
-                       ex:histogram="false">
-                     </div>
-                   <div ex:collectionID="publications" ex:facetClass="Cloud" ex:role="facet" ex:expression=".freeTags" ex:facetLabel="Free Tags"></div>
-                </td>
-                <td ex:role="viewPanel" ex:collectionID="publications">
-                    <div ex:role="view" ex:abbreviatedCount="25" ex:pageSize="25" ex:paginate="true">
+      <!-- Fixed navbar -->
+         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+           <div class="container">
+             <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="index.html">Open Data Research Network: Bibliography</a>
+             </div>
+             <div id="navbar" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                 <li class="active"><a href="index.html">Articles</a></li>
+                 <li><a href="notes.html">Extracts</a></li>
+                 <li><a href="contribute.html">Contribute</a></li>
+                 <li><a href="about.html">About</a></li>
+               </ul>
+             </div><!--/.nav-collapse -->
+           </div>
+         </nav>
+
+
+
+
+         <div class="container">
+             <div ex:role="collection" id="publications" ex:itemTypes="Publication"></div>
+             <div ex:role="coordinator" id="coordinator-a" ></div>
+             
+             <div class="col-md-3">
+                 <div ex:collectionID="publications" ex:role="facet" ex:facetLabel="Search" ex:facetClass="TextSearch" ex:queryParamName="key"></div>
+                 <div ex:collectionID="publications" ex:role="facet" ex:expression=".itemType.label" ex:facetLabel="Item Type" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".method.label" ex:facetLabel="Method" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".geo.label" ex:facetLabel="Geography" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".stage.label" ex:facetLabel="Stage" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".sector.label" ex:facetLabel="Sector" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact.label" ex:facetLabel="Impact" ex:sortMode="count"></div>                            
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".focus" ex:facetLabel="Focus" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".author" ex:facetLabel="Author" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" ex:expression=".impact-sector" ex:facetLabel="Impact Sector" ex:sortMode="count"></div>
+                  <div ex:collectionID="publications" ex:role="facet" 
+                    ex:expression=".impact-strength"
+                    ex:facetClass="Slider" 
+                    ex:horizontal="true"
+                    ex:precision="1"
+                    ex:histogram="false">
+                  </div>
+             </div>
+             
+             <div class="col-md-9">
+                 
+                 <img src="http://opendataresearch.org/sites/default/files/odr_network_logo.png" class="pull-right" alt="Open Data Research"/>
+                 <p class="lead">This bibliography visualises an annotated collection of literature contributed by members of the Open Data Research Network, covering writing about the creation, supply, use and impacts of open data</p>
+                 <p>
+                     It draws upon <a href="contribute.html">tagged content</a> from the <a href="http://zotero.org/groups/open_data_research">Open Data Research Zotero Group</a>.
+                 </p>
+                 
+
+                 
+                 <div class="panel panel-default">
+                      <div class="panel-body">
+                 
+                 
+                          <div style="text-align:center; width:100%">
+                              <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" onClick="$('.map').toggle(); $(this).toggleClass('btn-success')">Map</button>
+                                <button type="button" class="btn btn-default" onClick="$('.tags').toggle(); $(this).toggleClass('btn-success')">Tags</button>
+                                <button type="button" class="btn btn-default btn-success" onClick="$('.details').toggle(); $(this).toggleClass('btn-success')">Details</button>
+                              </div>
+                          </div>   
+             
+             <div ex:role="viewPanel" ex:collectionID="publications" class="map" style="display:none;">
+                     <div ex:role="view" 
+                       ex:viewClass="Map" 
+                       ex:latlng=".latlng"
+                       ex:selectCoordinator="coordinator-a">
                         <div ex:role="lens" class="publication" style="display: none;">
-                            <div class="publication-item">
-                               <h3><a ex:href-content="concat('https://www.zotero.org/groups/open_data_research/items/',.key)" target="_blank"><span ex:content=".label"></span></a> (<span ex:content=".date"></span>)</h3>
-                               <div class="publication-authors"><span ex:content=".author"></span></div>
-     
-                               <table width="100%">
-                                   <tr>
-                                       <td valign="top">
-                                            <div class="abstract"><span ex:content=".abstract"></span></div>
-                                        </td>
-                                        <td width="400" valign="top">
-                                            <table class="classifications">
-                                                <tr>
-                                                    <td class="code">Type:</td>
-                                                    <td class="value" ex:content=".itemType"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Method:</td>
-                                                    <td class="value" ex:content=".method.label"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Focus:</td>
-                                                    <td class="value" ex:content=".focus"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Sector:</td>
-                                                    <td class="value" ex:content=".sector.label"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Geography:</td>
-                                                    <td class="value" ex:content=".geo.label"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Stage:</td>
-                                                    <td class="value" ex:content=".stage.label"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Impact:</td>
-                                                    <td class="value" ex:content=".impact.label"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Impact Sector:</td>
-                                                    <td class="value" ex:content=".impact-sector"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="code">Impact Strength:</td>
-                                                    <td class="value" ex:content=".impact-strength"></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                               </table>
-                               
-                               
-                               
-                               <div class="url">View/Download: <a ex:href-content=".url" target="_blank" ex:content=".url"></a></div>
-                               
-                        </div>
-                        
-                    </div>
-                </td>
+                            <div class="publication-item-map">
+                             <a ex:href-content="concat('https://www.zotero.org/groups/open_data_research/items/',.key)" target="_blank"><span ex:content=".label"></span></a> (<span ex:content=".date"></span>)
+                            </div>
+                         </div>
+                     </div>
+              </div>
+              
 
-            </tr>
-        </table>
+                 
+                 <div class="tags" style="display:none;">
+                     <div ex:collectionID="publications" ex:facetClass="Cloud" ex:role="facet" ex:expression=".freeTags" ex:facetLabel="Free Tags"></div> 
+                 </div>
+                                 
+                 <div ex:role="viewPanel" ex:collectionID="publications" class="details">
+                  <div ex:role="view" ex:abbreviatedCount="25" ex:pageSize="25" ex:paginate="true" ex:selectCoordinator="coordinator-a" ex:grouped="false">
+                         <div ex:role="lens" class="publication" style="display: none;">
+                             <div class="publication-item">
+                                <h3><a ex:href-content="concat('https://www.zotero.org/groups/open_data_research/items/',.key)" target="_blank"><span ex:content=".label"></span></a> (<span ex:content=".date"></span>)</h3>
+                                
+                                <div class="publication-authors"><span ex:content=".author"></span></div>
+                                
+                                <div class="abstract"><span ex:content=".abstract"></span></div>
 
-   </body>
-  </html>
+                                <span class="metaitem"><label class="label">Type:</label><span class="value" ex:content=".itemType"></span></span>
+                                <span class="metaitem"><label class="label">Method:</label><span class="value" ex:content=".method.label"></span></span>
+                                <span class="metaitem"><label class="label">Focus:</label><span class="value" ex:content=".focus"></span></span>
+                                <span class="metaitem"><label class="label">Sector:</label><span class="value" ex:content=".sector.label"></span></span>
+                                <span class="metaitem"><label class="label">Geography:</label><span class="value" ex:content=".geo.label"></span></span>
+                                <span class="metaitem"><label class="label">Stage:</label><span class="value" ex:content=".stage.label"></span></span>
+                                <span class="metaitem"><label class="label">Impact:</label><span class="value" ex:content=".impact.label"></span></span>
+                                <span class="metaitem"><label class="label">Impact Sector:</label><span class="value" ex:content=".impact-sector"></span></span>
+                                <span class="metaitem"><label class="label">Impact Strength:</label><span class="value" ex:content=".impact-strength"></span></span>
+                         
+
+
+                            <br clear="all"/>
+                                <span class="glyphicon glyphicon-link" aria-hidden="true" style="float:left; margin-right:10px"></span> <a ex:href-content=".url" target="_blank"><span class="doc-link" ex:content=".url"></a> <span class="glyphicon glyphicon-search" aria-hidden="true" style="float:left; margin-right:10px"></span> <a ex:href-content="concat('notes.html?key=',.key)" target="_blank">Search for extracts</a> 
+
+                         </div>
+
+                  </div>
+                </div>
+                </div>
+                </div>
+                
+             </div>
+          
+
+         </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/readmore.js"></script>
+    <script>
+    $( document ).ready(function() {
+        $('.abstract span span').waitUntilExists(function() { $('.abstract span span').readmore() });
+    })
+    </script>
+  </body>
+</html>

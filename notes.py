@@ -20,7 +20,7 @@ def validateTags(item):
         smartTag = tag['tag'].split(":")
         try:
             if " " in smartTag[1]:
-                print "ERROR. Space found in " + smartTag[0] +" tag for item " + item['key'] + " " + item['data']['title'] #ToDo - improve error handling
+                print "ERROR. Space found in " + smartTag[0] +" tag for item " + item['key'] #ToDo - improve error handling
                 tagValue = smartTag[1].replace(" ","-")
             else:
                 tagValue = smartTag[1]
@@ -34,73 +34,62 @@ def validateTags(item):
 
     return returnTags
 
-def exhibitNode(item,tags):
-    if item['data']['itemType'] == "attachment":
+def exhibitNode(note,tags):
+    if note['data']['itemType'] == "attachment":
         itemType = "Attachment"
-    elif item['data']['itemType'] == "note":
+    elif note['data']['itemType'] == "note":
         itemType = "Note"
-    elif item['data']['itemType'] == "webpage":
+    elif note['data']['itemType'] == "webpage":
         itemType = "Web Page"
-        
     else:
         itemType = "Publication"
 
-    eItem = {
-        "id":item['key'],
-        "key":item['key'],
-        "type":itemType,
-        "itemType":item['data']['itemType'],
-        "label":item['data']['title'],
-        "date":item['data'].get('date',''),
-        "abstract":item['data'].get('abstractNote',''),
-        "url":item['data'].get('url',''),
-        "doi":item['data'].get('doi',''),
-        "place":item['data'].get('place',''),
-        "publisher":item['data'].get('publisher',''),
-        "volume":item['data'].get('volume',''),        
-        "issue":item['data'].get('issue',''),        
-        "pages":item['data'].get('pages',''),        
-        "publication":item['data'].get('publicationTitle',item['data'].get('proceedingsTitle',''))
-    }
     
-    geo = []
+    try:
+        article = {}
+        article = lookup[str(note['data']['parentItem'])]
+        print "Found article"
+    except:
+        eItem = {"data":{}}
+    
+    eItem = {
+              "id":note['key'],
+              "key":note['key'],
+              "note":note['data'].get("note",''),
+              "itemID":article.get('id'),
+              "type":itemType,
+              "itemType":itemType,
+              "label":"Note on '" + article.get('label','unknown item') + "'",
+              "article":article.get('label','Unknown Item') + "'",
+              "date":article.get('date',''),
+              "url":article.get('url',''),
+              "publication":article.get('publication',''),
+              "latlng":article.get('latlng',''),
+              "period":article.get('period',''),
+              "focus": article.get('users',''),
+              "stage": article.get('stage',''),
+              "method": article.get('method',''),
+              "sector": article.get('sector',''),
+              "impact-sector": article.get('impact-sector',''),
+              "impact": article.get('impact',''),
+              "author": article.get('author',''),
+              "geo": article.get('geo',''),
+    }
+
+ 
+    
     for k, v in tags['tags'].iteritems():
         if len(v) == 1:
             eItem.update({k:v[0]})
         else:
             eItem.update({k:v})
 
-        if(k == "period"):
-            try:
-                period = v[0].split("-")
-                eItem.update({"period-from":period[0]})
-                try:
-                    eItem.update({"period-to":period[1]})
-                except:
-                    eItem.update({"period-to":period[0]})
-            except:
-                pass
-            
         if(k == "geo"):
             for c in v:
                 try:
                     geo.append(str(geocode[c][0]) + "," + str(geocode[c][1]))
                 except:
                     pass
-    
-    eItem.update({"latlng":geo})
-    
-    try:
-        authors = []
-        for creator in item['data']['creators']:
-            try:
-                authors.append(creator.get('lastName','') + ", " + creator.get('firstName'))
-            except:
-                authors.append(creator.get('lastName',''))
-        eItem.update({"author":authors})
-    except KeyError:
-        #No Authors
-        pass
     
     return eItem
 
@@ -110,16 +99,14 @@ def exhibitNode(item,tags):
 
 def crawlZotero(group,query):
     url = "https://api.zotero.org/groups/"+str(group)+"/items/?v=3&"+query
+
     while True:
         zoteroData = fetchFile(url)
         jsonData = json.loads(zoteroData['data'])
 
         for item in jsonData:
-            if item['data'].get('extra','') == 'coded': ## or 'candidate' in item['data'].get('extra','')
-                tags = validateTags(item)
-                node = exhibitNode(item,tags)
-                exhibitJson['items'].append(node)
-                lookup.update({node['key']:node})
+            tags = validateTags(item)
+            exhibitJson['items'].append(exhibitNode(item,tags))
 
         if zoteroData['links'].get('next',''):
             print "Fetching next" + zoteroData['links']['next']
@@ -127,13 +114,11 @@ def crawlZotero(group,query):
         else:
             break;
 
-
-lookup = {}
 exhibitJson = json.loads(open('exhibit/template.json').read())
+lookup = json.loads(open('lookup.json').read())
 
 ## For now we're not fetching notes
-crawlZotero(164662,"itemType=-note")
+crawlZotero(164662,"itemType=note")
 
 
-open('exhibit/data.json','w').write(json.dumps(exhibitJson, indent=4, separators=(',', ': ')))
-open('lookup.json','w').write(json.dumps(lookup, indent=4, separators=(',', ': ')))
+open('exhibit/notes.json','w').write(json.dumps(exhibitJson, indent=4, separators=(',', ': ')))

@@ -3,22 +3,14 @@
         "Publication": 
             {
             "pluralLabel":"Publications"
+            },
+        "Note": 
+            {
+            "pluralLabel":"Notes"
             }
     },
     "properties":{
         "geo": {
-            "valueType": "item"
-        },
-        "stage": {
-            "valueType": "item"
-        },
-        "impact": {
-            "valueType": "item"
-        },
-        "method": {
-            "valueType": "item"
-        },
-        "itemType": {
             "valueType": "item"
         },
         "impact-strength": {
@@ -319,19 +311,21 @@
            {"id":"environmental","label":"Environmental","type":"impact"},
            {"id":"economic","label":"Economic","type":"impact"},
            {"id":"book","label":"Book","type":"itemType"},
-           {"id":"booksection","label":"Book Section","type":"itemType"},
+           {"id":"bookSection","label":"Book Section","type":"itemType"},
            {"id":"blogpost","label":"Blog Post","type":"itemType"},
+           {"id":"webpage","label":"Web Page","type":"itemType"},
            {"id":"case","label":"Case","type":"itemType"},
-           {"id":"conferencepaper","label":"Conference Paper","type":"itemType"},
+           {"id":"conferencePaper","label":"Conference Paper","type":"itemType"},
            {"id":"interview","label":"Interview","type":"itemType"},
-           {"id":"journalarticle","label":"Journal Article","type":"itemType"},
-           {"id":"newspaperarticle","label":"Newspaper Article","type":"itemType"},
-           {"id":"magazinearticle","label":"Magazine Article","type":"itemType"},
+           {"id":"journalArticle","label":"Journal Article","type":"itemType"},
+           {"id":"newspaperArticle","label":"Newspaper Article","type":"itemType"},
+           {"id":"magazineArticle","label":"Magazine Article","type":"itemType"},
            {"id":"presentation","label":"Presentation","type":"itemType"},
            {"id":"report","label":"Report","type":"itemType"},
-           {"id":"thesis","label":"Thesis","type":"itemType"}
+           {"id":"thesis","label":"Thesis","type":"itemType"},
+           {"id":"manuscript","label":"Manuscript","type":"itemType"}
 
-
+  
 
        ]
 }

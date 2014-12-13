@@ -11,10 +11,11 @@ It iterates over all the items in the group.
 
 Run buildbib.py to fetch new data. It will merge the new data with the template.json contents to provide labels for relevant elements. 
 
+Then run notes.py to fetch new data. It will fetch annotations and create data for a separate notes.html display
+
 Then view index.html (this must be served from a web server, as browser security models otherwise prevent the scripts directly accessing the data.json file through a filesystem)
 
 ### ToDo
 
-* The tagged content on Zotero also includes 'notes' related to each article. These should be displayed in the interface.
 * The template.json should be automatically generated from the schema. 
 * It would be nice to include screen-shot images of the file associated with entry. Explore options for doing this. 
