@@ -72,18 +72,18 @@ def exhibitNode(note,tags):
                      "author": article.get('author',''),
                      "geo": article.get('geo',''),
            }
-           for k, v in tags['tags'].iteritems():
-               if len(v) == 1:
-                   eItem.update({k:v[0]})
-               else:
-                   eItem.update({k:v})
+       for k, v in tags['tags'].iteritems():
+           if len(v) == 1:
+               eItem.update({k:v[0]})
+           else:
+               eItem.update({k:v})
 
-               if(k == "geo"):
-                   for c in v:
-                       try:
-                           geo.append(str(geocode[c][0]) + "," + str(geocode[c][1]))
-                       except:
-                           pass
+           if(k == "geo"):
+               for c in v:
+                   try:
+                       geo.append(str(geocode[c][0]) + "," + str(geocode[c][1]))
+                   except:
+                       pass
            
     except:
         eItem = {"data":{}}
