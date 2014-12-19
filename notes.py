@@ -72,7 +72,7 @@ def exhibitNode(note,tags):
                      "author": article.get('author',''),
                      "geo": article.get('geo',''),
            }
-       for k, v in tags['tags'].iteritems():
+        for k, v in tags['tags'].iteritems():
            if len(v) == 1:
                eItem.update({k:v[0]})
            else:
