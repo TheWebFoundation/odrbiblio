@@ -49,47 +49,44 @@ def exhibitNode(note,tags):
         article = {}
         article = lookup[str(note['data']['parentItem'])]
         print "Found article"
+        eItem = {
+                     "id":note['key'],
+                     "key":note['key'],
+                     "note":note['data'].get("note",''),
+                     "itemID":article.get('id'),
+                     "type":itemType,
+                     "itemType":itemType,
+                     "label":"Note on '" + article.get('label','unknown item') + "'",
+                     "article":article.get('label','Unknown Item') + "'",
+                     "date":article.get('date',''),
+                     "url":article.get('url',''),
+                     "publication":article.get('publication',''),
+                     "latlng":article.get('latlng',''),
+                     "period":article.get('period',''),
+                     "focus": article.get('users',''),
+                     "stage": article.get('stage',''),
+                     "method": article.get('method',''),
+                     "sector": article.get('sector',''),
+                     "impact-sector": article.get('impact-sector',''),
+                     "impact": article.get('impact',''),
+                     "author": article.get('author',''),
+                     "geo": article.get('geo',''),
+           }
+           for k, v in tags['tags'].iteritems():
+               if len(v) == 1:
+                   eItem.update({k:v[0]})
+               else:
+                   eItem.update({k:v})
+
+               if(k == "geo"):
+                   for c in v:
+                       try:
+                           geo.append(str(geocode[c][0]) + "," + str(geocode[c][1]))
+                       except:
+                           pass
+           
     except:
         eItem = {"data":{}}
-    
-    eItem = {
-              "id":note['key'],
-              "key":note['key'],
-              "note":note['data'].get("note",''),
-              "itemID":article.get('id'),
-              "type":itemType,
-              "itemType":itemType,
-              "label":"Note on '" + article.get('label','unknown item') + "'",
-              "article":article.get('label','Unknown Item') + "'",
-              "date":article.get('date',''),
-              "url":article.get('url',''),
-              "publication":article.get('publication',''),
-              "latlng":article.get('latlng',''),
-              "period":article.get('period',''),
-              "focus": article.get('users',''),
-              "stage": article.get('stage',''),
-              "method": article.get('method',''),
-              "sector": article.get('sector',''),
-              "impact-sector": article.get('impact-sector',''),
-              "impact": article.get('impact',''),
-              "author": article.get('author',''),
-              "geo": article.get('geo',''),
-    }
-
- 
-    
-    for k, v in tags['tags'].iteritems():
-        if len(v) == 1:
-            eItem.update({k:v[0]})
-        else:
-            eItem.update({k:v})
-
-        if(k == "geo"):
-            for c in v:
-                try:
-                    geo.append(str(geocode[c][0]) + "," + str(geocode[c][1]))
-                except:
-                    pass
     
     return eItem
 
